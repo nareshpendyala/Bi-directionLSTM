@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Passengers Prediction</title>
+  </head>
+<body>
+ <div class="login">
+	<h1>New York Tax Management</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict_passengers')}}"method="post">
+      <input type="text" name="Value" placeholder="Past Value" required="required" />
+      <input type="text" name="Hour" placeholder="Hour in number" required="required" />
+      <input type="text" name="Day Time" placeholder="Day Time ( 0 or 1) " required="required" />
+	
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict No of Passengers</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
