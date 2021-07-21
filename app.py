@@ -1,19 +1,13 @@
 import numpy as np
 from flask import Flask,render_template,request
-import pickle
-import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import Bidirectional, LSTM, Dropout, Dense
-
+from keras.models import load_model
 
 app = Flask(__name__)
-model = tf.keras.models.load_model('my_model.h5')
-
+model = load_model('my_model.h5')
 
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 @app.route('/predict_passengers',methods=['POST'])
 def predict_passengers():
